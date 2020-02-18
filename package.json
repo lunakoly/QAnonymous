@@ -4,7 +4,7 @@
   "description": "A minimalistic anonymouse Q&A service.",
   "main": "main.js",
   "scripts": {
-    "start": "nodejs ."
+    "start": "node ."
   },
   "author": "luna_koly",
   "license": "MIT",
