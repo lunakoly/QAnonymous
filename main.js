@@ -5,6 +5,7 @@ const http = require('http').createServer(app)
 
 const io = require('socket.io')(http)
 
+const PORT = process.env.PORT || 1234
 
 
 io.on('connection', function(socket) {
@@ -18,6 +19,6 @@ app.get('/', function(request, response) {
 
 app.use(express.static('static'))
 
-http.listen(1234, function() {
-    console.log('Server started on port 1234')
+http.listen(PORT, function() {
+    console.log(`Server started on port ${PORT}`)
 })
