@@ -4,11 +4,12 @@
   "description": "A minimalistic anonymouse Q&A service.",
   "main": "main.js",
   "scripts": {
-    "test": "node ."
+    "start": "node ."
   },
   "author": "luna_koly",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
   }
 }
