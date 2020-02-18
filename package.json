@@ -1,0 +1,14 @@
+{
+  "name": "qanonymous",
+  "version": "1.0.0",
+  "description": "A minimalistic anonymouse Q&A service.",
+  "main": "main.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "author": "luna_koly",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
