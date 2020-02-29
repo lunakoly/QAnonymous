@@ -1,0 +1,13 @@
+.topic {
+    margin-bottom: 1.5rem;
+}
+
+.question,
+.answer {
+    padding: 0.5em;
+}
+
+.question {
+    background-color: #26a69a;
+    color: white;
+}

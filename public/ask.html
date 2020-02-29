@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Q|Anonymous</title>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="/public/css/more/materialize.min.css">
+        <link rel="stylesheet" href="/public/css/more/icon.css">
+
+        <link rel="stylesheet" href="/public/css/common.css">
+        <link rel="stylesheet" href="/public/css/ask.css">
+    </head>
+
+    <body>
+        <!-- <nav>
+            <div class="nav-wrapper blue lighten-1">
+                <a href="" class="brand-logo">Q|Anonymous</a>
+            </div>
+        </nav> -->
+
+        <!-- <div class="blue lighten-2"> -->
+            <div class="container center-align">
+                <h5>Ask <span class="nik">{{ username }}</span> anything</h5>
+
+                <div class="row input-field">
+                    <textarea
+                        id="question_input"
+                        class="col m6 offset-m3"
+                        placeholder="?"></textarea>
+                </div>
+
+                <a
+                    id="send_button"
+                    class="waves-effect waves-light btn blue lighten-1">Ask
+                    <i class="material-icons right">send</i>
+                </a>
+            </div>
+        <!-- </div> -->
+
+        <div class="container center-align">
+            <h2>Answers</h2>
+
+            <div class="row">
+                <div class="col m4 s12" id="lefter_topic floating-popups">
+                    <div class="topic floating-popup">
+                        <div class="question blue lighten-1">How many stars are there on the sky?</div>
+                        <div class="answer">1m</div>
+                    </div>
+
+                    <div class="topic floating-popup">
+                        <div class="question blue lighten-1">2 + 2?</div>
+                        <div class="answer">4</div>
+                    </div>
+                </div>
+
+                <div class="col m4 s12" id="center_topic floating-popups">
+                    <div class="topic floating-popup">
+                        <div class="question blue lighten-1">What's your favourite movie?</div>
+                        <div class="answer">Gattaka</div>
+                    </div>
+
+                    <div class="topic floating-popup">
+                        <div class="question blue lighten-1">aaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaa?</div>
+                        <div class="answer">bbbbbbbbbbbb bbbbbbb bbbbbbbbbbbbbbbbbbb bbbbb</div>
+                    </div>
+                </div>
+
+                <div class="col m4 s12" id="righter_topic floating-popups">
+                    <div class="topic floating-popup">
+                        <div class="question blue lighten-1">Have you watched Parasides?</div>
+                        <div class="answer">Fantastic movie</div>
+                    </div>
+
+                    <div class="topic floating-popup">
+                        <div class="question blue lighten-1">DAdnawdnawkjndkawnd?</div>
+                        <div class="answer">AWNjdlnfaw kwand anwd lkwan wak e</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/public/js/more/materialize.min.js"></script>
+
+        <script>
+            const USERNAME = "{{ username }}"
+        </script>
+
+        <script src="/public/js/ask.js"></script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Q|Anonymous</title>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="/public/css/more/materialize.min.css">
+        <link rel="stylesheet" href="/public/css/more/icon.css">
+
+        <link rel="stylesheet" href="/public/css/common.css">
+        <link rel="stylesheet" href="/public/css/login.css">
+    </head>
+
+    <body>
+        <div class="container center">
+            <h5>Login to your profile</h5>
+
+            <div class="row">
+                <form
+                    class="floating-popup floating-list col m6 offset-m3 s12"
+                    action="/answer"
+                    method="post">
+                    <div class="input-field">
+                        <input type="text" class="validate" id="nik_input" name="username">
+                        <label for="nik_input">Login</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" class="validate" id="password" name="password">
+                        <label for="password">Password</label>
+                    </div>
+
+                    <button
+                        id="send_button"
+                        class="waves-effect waves-light btn blue lighten-1"
+                        type="submit">Ask
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/public/js/more/materialize.min.js"></script>
+
+        <script src="/public/js/login.js"></script>
+    </body>
+</html>
