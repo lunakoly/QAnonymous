@@ -22,12 +22,17 @@
             <div class="container center-align">
                 <h5>Ask <span class="nik">{{ username }}</span> anything</h5>
 
-                <div class="row input-field">
+                <form
+                    id="question_form"
+                    class="row input-field"
+                    action="/send-question/{{ username }}"
+                    method="POST">
                     <textarea
                         id="question_input"
+                        name="question"
                         class="col m6 offset-m3"
                         placeholder="?"></textarea>
-                </div>
+                </form>
 
                 <a
                     id="send_button"
@@ -79,7 +84,7 @@
             </div>
         </div>
 
-        <script src="/socket.io/socket.io.js"></script>
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
         <script src="/public/js/more/materialize.min.js"></script>
 
         <script>

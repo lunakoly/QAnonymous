@@ -1,9 +1,9 @@
-const socket = io()
+// const socket = io()
 
 
-socket.on('question-received', () => {
-    question_input.value = ''
-})
+// socket.on('question-received', () => {
+//     question_input.value = ''
+// })
 
 
 document.addEventListener('DOMContextLoaded', e => {
@@ -15,12 +15,13 @@ function isBlank(string) {
     return string.replace(/\s+/g, '').length == 0
 }
 
-function send(question) {
-    if (!isBlank(question)) {
-        socket.emit('question', {
-            target: 'luna_koly',
-            question: question
-        })
+function send() {
+    if (!isBlank(question_input.value)) {
+        question_form.submit()
+        // socket.emit('question', {
+        //     target: 'luna_koly',
+        //     question: question
+        // })
     } else {
         alert('Empty text may not be sent.')
     }
@@ -28,12 +29,12 @@ function send(question) {
 
 
 send_button.addEventListener('click', e => {
-    send(question_input.value)
+    send()
 })
 
 question_input.addEventListener('keydown', e => {
     if (e.key == 'Enter' && e.ctrlKey) {
-        send(question_input.value)
+        send()
     }
 })
 
