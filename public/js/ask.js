@@ -1,11 +1,3 @@
-// const socket = io()
-
-
-// socket.on('question-received', () => {
-//     question_input.value = ''
-// })
-
-
 document.addEventListener('DOMContextLoaded', e => {
 
 })
@@ -18,10 +10,6 @@ function isBlank(string) {
 function send() {
     if (!isBlank(question_input.value)) {
         question_form.submit()
-        // socket.emit('question', {
-        //     target: 'luna_koly',
-        //     question: question
-        // })
     } else {
         alert('Empty text may not be sent.')
     }

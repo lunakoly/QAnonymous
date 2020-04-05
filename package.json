@@ -4,7 +4,7 @@
   "description": "A minimalistic anonymouse Q&A service.",
   "main": "main.js",
   "scripts": {
-    "start": "node ."
+    "start": "env DATABASE_URL=localhost node ."
   },
   "author": "luna_koly",
   "license": "MIT",
@@ -16,7 +16,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^7.18.2",
-    "pug": "^2.0.4",
-    "socket.io": "^2.3.0"
+    "pug": "^2.0.4"
   }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Q|Anonymous</title>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="/public/css/more/materialize.min.css">
+        <link rel="stylesheet" href="/public/css/more/icon.css">
+
+        <link rel="stylesheet" href="/public/css/common.css">
+
+        <style>
+            td {
+                border: 1px solid black;
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="here"></div>
+
+        <script src="/public/js/more/materialize.min.js"></script>
+
+        <script>
+            function render(representation) {
+                const element = document.createElement('div')
+                element.innerHTML = representation
+                return element.textContent
+            }
+
+            const data = `{{contents}}`
+            here.innerHTML = render(data)
+        </script>
+    </body>
+</html>

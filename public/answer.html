@@ -15,46 +15,82 @@
         <div class="container center-align">
             <h5>Questions for <span class="nik">you</span></h5>
 
+            {{^result.rows}}
+                <h5>Looks like there're no new questions...</h5>
+            {{/result.rows}}
+
             <div class="row">
                 <div class="col m4 s12" id="lefter_topic floating-popups">
-                    <div class="topic floating-popup">
-                        <div class="question blue lighten-1">How many stars are there on the sky?</div>
-                        <div class="answer">1m</div>
-                    </div>
+                    {{#result.column1}}
+                        <div class="topic floating-popup">
+                            <div class="question blue lighten-1">{{question}}</div>
 
-                    <div class="topic floating-popup">
-                        <div class="question blue lighten-1">2 + 2?</div>
-                        <div class="answer">4</div>
-                    </div>
+                            <form
+                                class="answer_form input-field no-margin"
+                                action="/send-answer/{{ id }}"
+                                method="POST">
+                                <textarea
+                                    class="inline-textarea answer_input"
+                                    name="answer"
+                                    placeholder="..."></textarea>
+                            </form>
+
+                            <a
+                                class="send_button waves-effect waves-light btn blue lighten-1">Answer
+                                <i class="material-icons right">send</i>
+                            </a>
+                        </div>
+                    {{/result.column1}}
                 </div>
 
                 <div class="col m4 s12" id="center_topic floating-popups">
-                    <div class="topic floating-popup">
-                        <div class="question blue lighten-1">What's your favourite movie?</div>
-                        <div class="answer">Gattaka</div>
-                    </div>
+                    {{#result.column2}}
+                        <div class="topic floating-popup">
+                            <div class="question blue lighten-1">{{question}}</div>
 
-                    <div class="topic floating-popup">
-                        <div class="question blue lighten-1">aaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaa?</div>
-                        <div class="answer">bbbbbbbbbbbb bbbbbbb bbbbbbbbbbbbbbbbbbb bbbbb</div>
-                    </div>
+                            <form
+                                class="answer_form input-field no-margin"
+                                action="/send-answer/{{ id }}"
+                                method="POST">
+                                <textarea
+                                    class="inline-textarea answer_input"
+                                    name="answer"
+                                    placeholder="..."></textarea>
+                            </form>
+
+                            <a
+                                class="send_button waves-effect waves-light btn blue lighten-1">Answer
+                                <i class="material-icons right">send</i>
+                            </a>
+                        </div>
+                    {{/result.column2}}
                 </div>
 
                 <div class="col m4 s12" id="righter_topic floating-popups">
-                    <div class="topic floating-popup">
-                        <div class="question blue lighten-1">Have you watched Parasides?</div>
-                        <div class="answer">Fantastic movie</div>
-                    </div>
+                    {{#result.column3}}
+                        <div class="topic floating-popup">
+                            <div class="question blue lighten-1">{{question}}</div>
 
-                    <div class="topic floating-popup">
-                        <div class="question blue lighten-1">DAdnawdnawkjndkawnd?</div>
-                        <div class="answer">AWNjdlnfaw kwand anwd lkwan wak e</div>
-                    </div>
+                            <form
+                                class="answer_form input-field no-margin"
+                                action="/send-answer/{{ id }}"
+                                method="POST">
+                                <textarea
+                                    class="inline-textarea answer_input"
+                                    name="answer"
+                                    placeholder="..."></textarea>
+                            </form>
+
+                            <a
+                                class="send_button waves-effect waves-light btn blue lighten-1">Answer
+                                <i class="material-icons right">send</i>
+                            </a>
+                        </div>
+                    {{/result.column3}}
                 </div>
             </div>
         </div>
 
-        <!-- <script src="/socket.io/socket.io.js"></script> -->
         <script src="/public/js/more/materialize.min.js"></script>
 
         <script src="/public/js/answer.js"></script>

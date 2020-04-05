@@ -5,6 +5,7 @@
 .question,
 .answer {
     padding: 0.5em;
+    word-break: break-word;
 }
 
 .question {

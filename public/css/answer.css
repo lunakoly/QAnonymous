@@ -5,9 +5,14 @@
 .question,
 .answer {
     padding: 0.5em;
+    word-break: break-word;
 }
 
 .question {
     background-color: #26a69a;
     color: white;
+}
+
+.send_button {
+    margin-bottom: 0.7em;
 }
