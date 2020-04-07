@@ -11,8 +11,44 @@
     </head>
 
     <body>
-        <div class="container">
-            <h2>Welcome!</h2>
+        <div id="navbar">
+            <ul class="hide-on-med-and-down">
+                <li><a href="/" class="selected global-selection waves-effect waves-dark">Home</a></li>
+                <div class="spacer"></div>
+                <li><a href="/ask" class="global-selection waves-effect waves-dark">Ask</a></li>
+                <div class="spacer"></div>
+                <li><a href="/answer" class="global-selection waves-effect waves-dark">Answer</a></li>
+            </ul>
+            <a href="/" class="brand-logo">Q|Anonymous</a>
+            <ul class="hide-on-med-and-down">
+                {{#loggedIn}}
+                    <li><a href="/logout" class="btn waves-effect waves-light grey darken-3">Log Out</a></li>
+                {{/loggedIn}}
+                {{^loggedIn}}
+                    <li><a href="/login" class="btn waves-effect waves-light grey darken-3">Log In</a></li>
+                {{/loggedIn}}
+            </ul>
+        </div>
+
+        <div class="hat valign-wrapper">
+            <div class="container">
+                <div class="row center">
+                    <h2>Welcome!</h2>
+
+                    <div class="row">
+                        <p class="col m10 offset-m1 l8 offset-l2 flow-text">
+                            <span class="emph">Q|Anonymous</span> is a minimalistic service for anonymous <span class="emph">Q/A</span>.
+                            You will never see any adverticement here. It only provides the simpliest functionality of <span class="emph">Q/A</span>
+                            without other useless social media features.
+                        </p>
+                        <p class="col m10 offset-m1 l8 offset-l2 flow-text">
+                            Enjoy the simplicity.
+                        </p>
+                    </div>
+
+                    <a href="/register" class="btn-large grey darken-3 waves-effect waves-light">Let's Roll</a>
+                </div>
+            </div>
         </div>
 
         <script src="/public/js/more/materialize.min.js"></script>

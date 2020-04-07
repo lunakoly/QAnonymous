@@ -8,70 +8,86 @@
         <link rel="stylesheet" href="/public/css/more/icon.css">
 
         <link rel="stylesheet" href="/public/css/common.css">
-        <link rel="stylesheet" href="/public/css/ask.css">
+        <link rel="stylesheet" href="/public/css/ask-username.css">
     </head>
 
     <body>
-        <!-- <nav>
-            <div class="nav-wrapper blue lighten-1">
-                <a href="" class="brand-logo">Q|Anonymous</a>
-            </div>
-        </nav> -->
+        <div id="navbar">
+            <ul class="hide-on-med-and-down">
+                <li><a href="/" class="global-selection waves-effect waves-dark">Home</a></li>
+                <div class="spacer"></div>
+                <li><a href="/ask" class="selected global-selection waves-effect waves-dark">Ask</a></li>
+                <div class="spacer"></div>
+                <li><a href="/answer" class="global-selection waves-effect waves-dark">Answer</a></li>
+            </ul>
+            <a href="/" class="brand-logo">Q|Anonymous</a>
+            <ul class="hide-on-med-and-down">
+                {{#loggedIn}}
+                    <li><a href="/logout" class="btn waves-effect waves-light grey darken-3">Log Out</a></li>
+                {{/loggedIn}}
+                {{^loggedIn}}
+                    <li><a href="/login" class="btn waves-effect waves-light grey darken-3">Log In</a></li>
+                {{/loggedIn}}
+            </ul>
+        </div>
 
-        <!-- <div class="blue lighten-2"> -->
-            <div class="container center-align">
-                <h5>Ask <span class="nik">{{ username }}</span> anything</h5>
+        <div class="container center-align">
+            <h2>Ask <span class="nik">{{ username }}</span></h2>
 
-                <form
-                    id="question_form"
-                    class="row input-field"
-                    action="/send-question/{{ username }}"
-                    method="POST">
+            <form
+                id="question_form"
+                class="row input-field"
+                action="/send-question/{{ username }}"
+                method="POST">
+                <div class="row">
                     <textarea
                         id="question_input"
                         name="question"
-                        class="col m6 offset-m3"
+                        class="floating col m6 offset-m3"
+                        tabindex="1"
                         placeholder="?"></textarea>
-                </form>
+                </div>
 
-                <a
+                <button
                     id="send_button"
-                    class="waves-effect waves-light btn blue lighten-1">Ask
+                    class="btn grey darken-3 waves-effect waves-light"
+                    tabindex="2"
+                    type="button">Ask
                     <i class="material-icons right">send</i>
-                </a>
-            </div>
-        <!-- </div> -->
+                </button>
+            </form>
+        </div>
 
         <div class="container center-align">
             <h2>Answers</h2>
 
             {{^result.rows}}
-                <h5>Looks like no one has ever asked <span class="nik">{{ username }}</span> before. Be the first one!</h5>
+                <p class="flow-text">Looks like no one has ever asked <span class="nik">{{ username }}</span> before. Be the first one!</p>
             {{/result.rows}}
 
-            <div class="row">
-                <div class="col m4 s12" id="lefter_topic floating-popups">
+            <div class="not-too-wide row">
+                <div class="col m4 s12">
                     {{#result.column1}}
-                        <div class="topic floating-popup">
-                            <div class="question blue lighten-1">{{question}}</div>
+                        <div class="floating topic">
+                            <div class="question">{{question}}</div>
                             <div class="answer">{{answer}}</div>
                         </div>
                     {{/result.column1}}
                 </div>
 
-                <div class="col m4 s12" id="center_topic floating-popups">
+                <div class="col m4 s12">
                     {{#result.column2}}
-                        <div class="topic floating-popup">
-                            <div class="question blue lighten-1">{{question}}</div>
+                        <div class="floating topic">
+                            <div class="question">{{question}}</div>
                             <div class="answer">{{answer}}</div>
                         </div>
                     {{/result.column2}}
                 </div>
 
-                <div class="col m4 s12" id="righter_topic floating-popups">
+                <div class="col m4 s12">
                     {{#result.column3}}
-                        <div class="topic floating-popup">
-                            <div class="question blue lighten-1">{{question}}</div>
+                        <div class="floating topic">
+                            <div class="question">{{question}}</div>
                             <div class="answer">{{answer}}</div>
                         </div>
                     {{/result.column3}}
@@ -85,6 +101,6 @@
             const USERNAME = "{{ username }}"
         </script>
 
-        <script src="/public/js/ask.js"></script>
+        <script src="/public/js/ask-username.js"></script>
     </body>
 </html>

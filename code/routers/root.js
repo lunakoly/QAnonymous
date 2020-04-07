@@ -32,12 +32,16 @@ function parseIntoColumns(result) {
 
 
 root.get('/', (request, response) => {
-    response.sendFile(asset('home.html'))
+    response.render(asset('home.html'), {
+        loggedIn: request.isAuthenticated()
+    })
 })
 
 root.get('/login', constraints.requireNotAuthenticated, (request, response) => {
     response.sendFile(asset('login.html'))
 })
+
+root.get('/logout', authentication.logOut)
 
 root.get('/register', constraints.requireNotAuthenticated, (request, response) => {
     response.sendFile(asset('register.html'))
@@ -49,13 +53,16 @@ root.get('/answer', constraints.requireAuthenticated, (request, response) => {
     database.query(command, request.user.id)
         .then(result => {
             response.render(asset('answer.html'), {
-                result: parseIntoColumns(result)
+                result: parseIntoColumns(result),
+                loggedIn: request.isAuthenticated(),
             })
         })
 })
 
 root.get('/ask', (request, response) => {
-    response.sendFile(asset('ask.html'))
+    response.render(asset('ask.html'), {
+        loggedIn: request.isAuthenticated()
+    })
 })
 
 root.get('/ask/:username',
@@ -68,7 +75,8 @@ root.get('/ask/:username',
             .then(result => {
                 response.render(asset('ask-username.html'), {
                     username: request.params.username,
-                    result: parseIntoColumns(result)
+                    result: parseIntoColumns(result),
+                    loggedIn: request.isAuthenticated(),
                 })
             })
     }
@@ -79,6 +87,14 @@ root.post('/login',
     constraints.requireValidUsername,
     constraints.requireUserExists,
     authentication.authenticate
+)
+
+root.post('/register',
+    constraints.requireValidUsername,
+    constraints.requireUserNotExists,
+    constraints.requireValidPassword,
+    constraints.requireValidEmail,
+    authentication.register
 )
 
 root.post('/send-question/:username',
@@ -101,7 +117,8 @@ root.post('/send-answer/:id',
 
         if (topic.target != request.user.id) {
             return response.render(asset('error.html'), {
-                message: 'You can\'t answer for other people!'
+                message: 'You can\'t answer for other people!',
+                loggedIn: request.isAuthenticated(),
             })
         }
 

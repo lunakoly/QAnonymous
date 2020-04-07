@@ -12,18 +12,32 @@
     </head>
 
     <body>
+        <div id="navbar">
+            <ul class="hide-on-med-and-down">
+                <li><a href="/" class="global-selection waves-effect waves-dark">Home</a></li>
+                <div class="spacer"></div>
+                <li><a href="/ask" class="global-selection waves-effect waves-dark">Ask</a></li>
+                <div class="spacer"></div>
+                <li><a href="/answer" class="selected global-selection waves-effect waves-dark">Answer</a></li>
+            </ul>
+            <a href="/" class="brand-logo">Q|Anonymous</a>
+            <ul class="hide-on-med-and-down">
+                <li><a href="/logout" class="btn waves-effect waves-light grey darken-3">Log Out</a></li>
+            </ul>
+        </div>
+
         <div class="container center-align">
-            <h5>Questions for <span class="nik">you</span></h5>
+            <h2>Questions for <span class="nik">you</span></h2>
 
             {{^result.rows}}
-                <h5>Looks like there're no new questions...</h5>
+                <p class="flow-text">Looks like there're no new questions...</p>
             {{/result.rows}}
 
             <div class="row">
-                <div class="col m4 s12" id="lefter_topic floating-popups">
+                <div class="col m4 s12">
                     {{#result.column1}}
-                        <div class="topic floating-popup">
-                            <div class="question blue lighten-1">{{question}}</div>
+                        <div class="floating topic">
+                            <div class="question">{{question}}</div>
 
                             <form
                                 class="answer_form input-field no-margin"
@@ -32,21 +46,21 @@
                                 <textarea
                                     class="inline-textarea answer_input"
                                     name="answer"
-                                    placeholder="..."></textarea>
+                                    placeholder="↯"></textarea>
                             </form>
 
                             <a
-                                class="send_button waves-effect waves-light btn blue lighten-1">Answer
+                                class="send_button btn waves-effect waves-light grey darken-3">Answer
                                 <i class="material-icons right">send</i>
                             </a>
                         </div>
                     {{/result.column1}}
                 </div>
 
-                <div class="col m4 s12" id="center_topic floating-popups">
+                <div class="col m4 s12">
                     {{#result.column2}}
-                        <div class="topic floating-popup">
-                            <div class="question blue lighten-1">{{question}}</div>
+                        <div class="floating topic">
+                            <div class="question">{{question}}</div>
 
                             <form
                                 class="answer_form input-field no-margin"
@@ -55,21 +69,21 @@
                                 <textarea
                                     class="inline-textarea answer_input"
                                     name="answer"
-                                    placeholder="..."></textarea>
+                                    placeholder="↯"></textarea>
                             </form>
 
                             <a
-                                class="send_button waves-effect waves-light btn blue lighten-1">Answer
+                                class="send_button btn waves-effect waves-light grey darken-3">Answer
                                 <i class="material-icons right">send</i>
                             </a>
                         </div>
                     {{/result.column2}}
                 </div>
 
-                <div class="col m4 s12" id="righter_topic floating-popups">
+                <div class="col m4 s12">
                     {{#result.column3}}
-                        <div class="topic floating-popup">
-                            <div class="question blue lighten-1">{{question}}</div>
+                        <div class="floating topic">
+                            <div class="question">{{question}}</div>
 
                             <form
                                 class="answer_form input-field no-margin"
@@ -78,11 +92,11 @@
                                 <textarea
                                     class="inline-textarea answer_input"
                                     name="answer"
-                                    placeholder="..."></textarea>
+                                    placeholder="↯"></textarea>
                             </form>
 
                             <a
-                                class="send_button waves-effect waves-light btn blue lighten-1">Answer
+                                class="send_button btn waves-effect waves-light grey darken-3">Answer
                                 <i class="material-icons right">send</i>
                             </a>
                         </div>

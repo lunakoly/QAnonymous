@@ -9,9 +9,122 @@
 }
 
 
-html {
-    background-color: #efefef;
+/* background-color: #efefef; */
+/* background-color: #2b2b2b; */
+
+
+.black-space {
+    background-color: #2b2b2b;
+    color: white;
 }
+
+.black-space.light {
+    background-color: #424242;
+}
+
+.nik {
+    font-style: italic;
+}
+
+.emph {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.indent {
+    height: 1em;
+}
+
+.spacer {
+    width: 0.5em;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+#navbar {
+    height: 4.4rem;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+
+    position: relative;
+}
+
+#navbar > ul {
+    display: inline-block;
+}
+
+#navbar > ul > * {
+    display: inline-block;
+}
+
+#navbar > .brand-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 2rem;
+    color: black;
+}
+
+
+.brand-logo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+
+.global-selection {
+    padding: 0.5rem 1rem;
+
+    text-transform: uppercase;
+    color: black;
+
+    border-bottom: 5px solid transparent;
+}
+
+.global-selection.selected {
+    /* border-color: #424242; */
+    border-color: #ddd;
+}
+
+
+.hat {
+    height: 80vh;
+}
+
+
+.floating {
+    box-shadow:
+        rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+        rgba(0, 0, 0, 0.12) 0px 3px 1px -2px,
+        rgba(0, 0, 0, 0.2) 0px 1px 5px 0px;
+}
+
+.topic {
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.topic > .question {
+    background-color: #424242;
+    color: white;
+}
+
+.topic > .question,
+.topic > .answer {
+    padding: 0.5em;
+    word-break: break-word;
+}
+
 
 textarea {
     resize: none;
@@ -24,16 +137,14 @@ textarea {
     background-color: white;
     border-radius: 4px;
 
-    /* border: 1px solid #c8c8c8; */
     border: none;
-
-    box-shadow:
-        rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
-        rgba(0, 0, 0, 0.12) 0px 3px 1px -2px,
-        rgba(0, 0, 0, 0.2) 0px 1px 5px 0px;
 }
 
-.inline-textarea {
+textarea::placeholder {
+    color: #777;
+}
+
+/* .inline-textarea {
     resize: none;
     height: 6em;
 
@@ -44,13 +155,9 @@ textarea {
 
     border: none;
     box-shadow: none;
-}
+} */
 
-.nik {
-    font-style: italic;
-}
-
-.floating-popup {
+/* .floating-popup {
     overflow: hidden;
 
     background-color: white;
@@ -68,4 +175,4 @@ textarea {
 
 .no-margin {
     margin: 0;
-}
+} */

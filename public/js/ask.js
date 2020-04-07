@@ -1,18 +1,17 @@
-document.addEventListener('DOMContextLoaded', e => {
-
-})
-
-
 function isBlank(string) {
     return string.replace(/\s+/g, '').length == 0
 }
 
 function send() {
-    if (!isBlank(question_input.value)) {
-        question_form.submit()
+    if (!isBlank(search.value)) {
+        window.location.href = '/ask/' + search.value
     } else {
         alert('Empty text may not be sent.')
     }
+}
+
+function none() {
+
 }
 
 
@@ -20,11 +19,9 @@ send_button.addEventListener('click', e => {
     send()
 })
 
-question_input.addEventListener('keydown', e => {
-    if (e.key == 'Enter' && e.ctrlKey) {
+search.addEventListener('keydown', e => {
+    if (e.key == 'Enter') {
+        e.preventDefault()
         send()
     }
 })
-
-
-console.log('Username: ' + USERNAME)

@@ -11,9 +11,33 @@
     </head>
 
     <body>
-        <div class="container">
-            <h2>Error</h2>
-            <h5>{{ message }}</h5>
+        <div id="navbar">
+            <ul class="hide-on-med-and-down">
+                <li><a href="/" class="global-selection waves-effect waves-dark">Home</a></li>
+                <div class="spacer"></div>
+                <li><a href="/ask" class="global-selection waves-effect waves-dark">Ask</a></li>
+                <div class="spacer"></div>
+                <li><a href="/answer" class="global-selection waves-effect waves-dark">Answer</a></li>
+            </ul>
+            <a href="/" class="brand-logo">Q|Anonymous</a>
+            <ul class="hide-on-med-and-down">
+                {{#loggedIn}}
+                    <li><a href="/logout" class="btn waves-effect waves-light grey darken-3">Log Out</a></li>
+                {{/loggedIn}}
+                {{^loggedIn}}
+                    <li><a href="/login" class="btn waves-effect waves-light grey darken-3">Log In</a></li>
+                {{/loggedIn}}
+            </ul>
+        </div>
+
+        <div class="hat valign-wrapper">
+            <div class="container">
+                <div class="row center">
+                    <h2>Error!</h2>
+
+                    <p class="flow-text">{{ message }}</p>
+                </div>
+            </div>
         </div>
 
         <script src="/public/js/more/materialize.min.js"></script>
