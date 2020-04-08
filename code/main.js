@@ -30,6 +30,8 @@ const rootRouter = require('./routers/root')
 app.use('/', rootRouter)
 
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server started on port ${process.env.PORT}`)
+const PORT = process.env.PORT || 1234
+
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`)
 })

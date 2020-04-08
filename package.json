@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "code/main.js",
   "scripts": {
-    "start": "env PORT=1234 DATABASE_URL=localhost node .",
+    "start": "node .",
     "sass": "node-sass --watch public/sass -o public/css"
   },
   "dependencies": {
