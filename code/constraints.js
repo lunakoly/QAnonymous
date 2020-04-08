@@ -1,5 +1,6 @@
 const { asset } = require('./common')
 
+const authentication = require('./authentication')
 const database = require('./database')
 const design = require('./design')
 
@@ -114,6 +115,17 @@ async function requireTopicExists(request, response, next) {
     })
 }
 
+function requireAdmin(request, response, next) {
+    if (authentication.isAdmin(request.user)) {
+        return next()
+    }
+
+    return response.render(asset('error.html'), {
+        message: `This operation requires admin privileges.`,
+        loggedIn: request.isAuthenticated()
+    })
+}
+
 
 module.exports = {
     requireAuthenticated: requireAuthenticated,
@@ -124,4 +136,5 @@ module.exports = {
     requireUserExists: requireUserExists,
     requireTopicExists: requireTopicExists,
     requireUserNotExists: requireUserNotExists,
+    requireAdmin: requireAdmin,
 }

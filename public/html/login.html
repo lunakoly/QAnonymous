@@ -31,14 +31,14 @@
                 <div class="row center">
                     <h2>Login</h2>
 
-                    <form class="col m6 offset-m3 s12" action="/login" method="POST">
+                    <form id="login_form" class="col m6 offset-m3 s12" action="/login" method="POST">
                         <div class="input-field">
-                            <input type="text" class="validate" id="nik_input" name="username" tabindex="1" required>
+                            <input type="text" id="nik_input" name="username" tabindex="1" required>
                             <label for="nik_input">Login</label>
                         </div>
 
                         <div class="input-field">
-                            <input type="password" class="validate" id="password" name="password" tabindex="2" required>
+                            <input type="password" id="password" name="password" tabindex="2" required>
                             <label for="password">Password</label>
                         </div>
 
@@ -46,7 +46,7 @@
                             id="send_button"
                             class="btn-large waves-effect waves-light"
                             tabindex="3"
-                            type="submit">Go
+                            type="button">Go
                             <i class="material-icons right">send</i>
                         </button>
                     </form>
@@ -55,5 +55,7 @@
         </div>
 
         <script src="/public/js/more/materialize.min.js"></script>
+
+        <script src="/public/js/login.js"></script>
     </body>
 </html>

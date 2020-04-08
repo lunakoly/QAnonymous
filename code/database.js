@@ -41,6 +41,10 @@ function findUserByUsername(username) {
     return queryFirst(`SELECT * FROM users WHERE username = $1 LIMIT 1`, username)
 }
 
+function findUserByUsernameAndPassword(username, password) {
+    return queryFirst(`SELECT * FROM users WHERE username = $1 AND password = crypt($2, password) LIMIT 1`, username, password)
+}
+
 function findUserById(id) {
     return queryFirst(`SELECT * FROM users WHERE id = $1 LIMIT 1`, id)
 }
@@ -56,6 +60,7 @@ module.exports = {
     run: run,
 
     findUserByUsername: findUserByUsername,
+    findUserByUsernameAndPassword: findUserByUsernameAndPassword,
     findUserById: findUserById,
     findTopicById: findTopicById,
 }

@@ -36,7 +36,7 @@ function authenticate(request, response, next) {
 }
 
 function register(request, response, next) {
-    const command = `INSERT INTO users(username, password, email) VALUES ($1, $2, $3)`
+    const command = `INSERT INTO users(username, password, email) VALUES ($1, crypt($2, gen_salt('bf')), $3)`
 
     database.query(command, request.body.username, request.body.password, request.body.email)
         .then(_ => response.redirect('/login'))
@@ -45,6 +45,11 @@ function register(request, response, next) {
 function logOut(request, response, next) {
     request.logOut()
     response.redirect('/')
+}
+
+function isAdmin(user) {
+    const admin = process.env.ADMIN || 'admin'
+    return user.username == admin
 }
 
 
@@ -62,4 +67,5 @@ module.exports = {
     authenticate: authenticate,
     register: register,
     logOut: logOut,
+    isAdmin: isAdmin,
 }

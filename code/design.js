@@ -1,9 +1,9 @@
 function isValidUsername(username) {
-    return /^[a-zA-Z0-9_]+$/.test(username)
+    return /^[a-zA-Z0-9_]{1,50}$/.test(username)
 }
 
 function isValidPassword(password) {
-    return password.length >= 8
+    return password.length >= 8 && password.length <= 72
 }
 
 function isValidEmail(email) {

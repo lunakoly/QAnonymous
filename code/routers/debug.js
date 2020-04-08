@@ -1,5 +1,6 @@
 const { asset } = require('../common')
 
+const constraints = require('../constraints')
 const database = require('../database')
 
 const express = require('express')
@@ -34,6 +35,11 @@ function renderTable(title, result) {
     return contents
 }
 
+
+debug.use('*',
+    constraints.requireAuthenticated,
+    constraints.requireAdmin
+)
 
 debug.get('/', (request, response) => {
     let users = null

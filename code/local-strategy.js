@@ -8,14 +8,17 @@ function authenticate(username, password, done) {
     // by this time this check should have
     // already been performed but I'll
     // do it here once again just in case
-    if (!design.isValidUsername(username)) {
+    if (
+        !design.isValidUsername(username) ||
+        !design.isValidPassword(password)
+    ) {
         return done(null, false)
     }
 
     return database
-        .findUserByUsername(username)
+        .findUserByUsernameAndPassword(username, password)
         .then(user => {
-            if (user != null && user.password == password) {
+            if (user != null) {
                 return done(null, user)
             }
 

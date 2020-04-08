@@ -86,6 +86,7 @@ root.get('/ask/:username',
 root.post('/login',
     constraints.requireValidUsername,
     constraints.requireUserExists,
+    constraints.requireValidPassword,
     authentication.authenticate
 )
 
