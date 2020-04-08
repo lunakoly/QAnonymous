@@ -18,7 +18,7 @@ function authenticate(request, response, next) {
             return next(error)
         }
 
-        if (user == null) {
+        if (!user) {
             return response.redirect('/login')
         }
 

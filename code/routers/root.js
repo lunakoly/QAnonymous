@@ -134,4 +134,12 @@ const debugRouter = require('./debug')
 root.use('/debug', debugRouter)
 
 
+root.use('*', (request, response) => {
+    return response.render(asset('error.html'), {
+        message: `Invalid URL`,
+        loggedIn: request.isAuthenticated()
+    })
+})
+
+
 module.exports = root
