@@ -3,6 +3,7 @@ const express = require('express')
 
 const app = express()
 app.use('/public', express.static('public'))
+app.use('/.well-known/acme-challenge', express.static('.well-known/acme-challenge'))
 
 
 const mustageExpress = require('mustache-express')
