@@ -10,7 +10,11 @@ function send() {
     if (isValidMessage(question_input.value)) {
         question_form.submit()
     } else {
-        alert('Empty text may not be sent.')
+        if (question_input.value.length > 500) {
+            alert('Sorry, but messages longer than 500 symbols are not allowed :(')
+        } else {
+            alert('Empty text may not be sent.')
+        }
     }
 }
 
