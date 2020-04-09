@@ -101,6 +101,25 @@ async function requireUserNotExists(request, response, next) {
     })
 }
 
+async function requireUserNotExistsOrSelf(request, response, next) {
+    const username = request.params.username || request.body.username
+
+    if (username == request.user.username) {
+        return next()
+    }
+
+    const user = await database.findUserByUsername(username)
+
+    if (user == null) {
+        return next()
+    }
+
+    return response.render(asset('error.html'), {
+        message: `User ${username} already exists!`,
+        loggedIn: request.isAuthenticated()
+    })
+}
+
 async function requireTopicExists(request, response, next) {
     const topic = await database.findTopicById(request.params.id)
 
@@ -188,4 +207,5 @@ module.exports = {
     requireCurrentPasswordMatch: requireCurrentPasswordMatch,
     requireValidQuestion: requireValidQuestion,
     requireValidAnswer: requireValidAnswer,
+    requireUserNotExistsOrSelf: requireUserNotExistsOrSelf,
 }

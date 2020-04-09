@@ -143,7 +143,7 @@ root.post('/update-info',
     constraints.requireAuthenticated,
     constraints.requireValidUsername,
     constraints.requireValidEmail,
-    constraints.requireUserNotExists,
+    constraints.requireUserNotExistsOrSelf,
     (request, response) => {
         const command = `UPDATE users SET username = $1, email = $2  WHERE id = $3;`
 
