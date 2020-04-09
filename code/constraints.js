@@ -148,6 +148,32 @@ async function requireCurrentPasswordMatch(request, response, next) {
     return next()
 }
 
+function requireValidQuestion(request, response, next) {
+    const question = request.body.question
+
+    if (design.isValidMessage(question)) {
+        return next()
+    }
+
+    return response.render(asset('error.html'), {
+        message: `Invalid question.`,
+        loggedIn: request.isAuthenticated()
+    })
+}
+
+function requireValidAnswer(request, response, next) {
+    const answer = request.body.answer
+
+    if (design.isValidMessage(answer)) {
+        return next()
+    }
+
+    return response.render(asset('error.html'), {
+        message: `Invalid answer.`,
+        loggedIn: request.isAuthenticated()
+    })
+}
+
 
 module.exports = {
     requireAuthenticated: requireAuthenticated,
@@ -160,4 +186,6 @@ module.exports = {
     requireUserNotExists: requireUserNotExists,
     requireAdmin: requireAdmin,
     requireCurrentPasswordMatch: requireCurrentPasswordMatch,
+    requireValidQuestion: requireValidQuestion,
+    requireValidAnswer: requireValidAnswer,
 }

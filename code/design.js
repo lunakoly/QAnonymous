@@ -10,9 +10,19 @@ function isValidEmail(email) {
     return /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(email)
 }
 
+function isBlank(string) {
+    return string.replace(/\s+/g, '').length == 0
+}
+
+function isValidMessage(message) {
+    return !isBlank(message) && message.length > 0 && message.length <= 500
+}
+
 
 module.exports = {
     isValidUsername: isValidUsername,
     isValidPassword: isValidPassword,
     isValidEmail: isValidEmail,
+    isBlank: isBlank,
+    isValidMessage: isValidMessage,
 }

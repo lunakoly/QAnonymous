@@ -108,6 +108,7 @@ root.post('/register',
 root.post('/send-question/:username',
     constraints.requireValidUsername,
     constraints.requireUserExists,
+    constraints.requireValidQuestion,
     (request, response) => {
         const user = request.required.user
         const command = `INSERT INTO topics(target, question) VALUES ($1, $2);`
@@ -120,6 +121,7 @@ root.post('/send-question/:username',
 root.post('/send-answer/:id',
     constraints.requireAuthenticated,
     constraints.requireTopicExists,
+    constraints.requireValidAnswer,
     (request, response) => {
         const topic = request.required.topic
 

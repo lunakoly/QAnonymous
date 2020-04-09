@@ -10,10 +10,6 @@ function send() {
     }
 }
 
-function none() {
-
-}
-
 
 send_button.addEventListener('click', e => {
     send()

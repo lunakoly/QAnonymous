@@ -1,14 +1,13 @@
-document.addEventListener('DOMContextLoaded', e => {
-
-})
-
-
 function isBlank(string) {
     return string.replace(/\s+/g, '').length == 0
 }
 
+function isValidMessage(message) {
+    return !isBlank(message) && message.length > 0 && message.length <= 500
+}
+
 function send(answer_input, answer_form) {
-    if (!isBlank(answer_input.value)) {
+    if (isValidMessage(answer_input.value)) {
         answer_form.submit()
     } else {
         alert('Empty text may not be sent.')
