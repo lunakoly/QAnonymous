@@ -47,6 +47,13 @@ root.get('/register', constraints.requireNotAuthenticated, (request, response) =
     response.sendFile(asset('register.html'))
 })
 
+root.get('/settings', constraints.requireAuthenticated, (request, response) => {
+    response.render(asset('settings.html'), {
+        username: request.user.username,
+        email: request.user.email,
+    })
+})
+
 root.get('/answer', constraints.requireAuthenticated, (request, response) => {
     const command = `SELECT * FROM topics WHERE (target = $1) AND (answer IS NULL)`
 
@@ -127,6 +134,31 @@ root.post('/send-answer/:id',
 
         database.query(command, request.body.answer, topic.id)
             .then(_ => response.redirect('/answer'))
+    }
+)
+
+root.post('/update-info',
+    constraints.requireAuthenticated,
+    constraints.requireValidUsername,
+    constraints.requireValidEmail,
+    constraints.requireUserNotExists,
+    (request, response) => {
+        const command = `UPDATE users SET username = $1, email = $2  WHERE id = $3;`
+
+        database.query(command, request.body.username, request.body.email, request.user.id)
+            .then(_ => response.redirect('/settings'))
+    }
+)
+
+root.post('/update-password',
+    constraints.requireAuthenticated,
+    constraints.requireCurrentPasswordMatch,
+    constraints.requireValidPassword,
+    (request, response) => {
+        const command = `UPDATE users SET password = crypt($1, gen_salt('bf')) WHERE id = $2;`
+
+        database.query(command, request.body.password, request.user.id)
+            .then(_ => response.redirect('/settings'))
     }
 )
 

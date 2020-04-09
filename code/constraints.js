@@ -126,6 +126,28 @@ function requireAdmin(request, response, next) {
     })
 }
 
+async function requireCurrentPasswordMatch(request, response, next) {
+    const password_current = request.body.password_current
+
+    if (!design.isValidPassword(password_current)) {
+        return response.render(asset('error.html'), {
+            message: `Invalid password specified.`,
+            loggedIn: request.isAuthenticated()
+        })
+    }
+
+    const user = await database.findUserByUsernameAndPassword(request.user.username, password_current)
+
+    if (user == null) {
+        return response.render(asset('error.html'), {
+            message: `Current password is wrong.`,
+            loggedIn: request.isAuthenticated()
+        })
+    }
+
+    return next()
+}
+
 
 module.exports = {
     requireAuthenticated: requireAuthenticated,
@@ -137,4 +159,5 @@ module.exports = {
     requireTopicExists: requireTopicExists,
     requireUserNotExists: requireUserNotExists,
     requireAdmin: requireAdmin,
+    requireCurrentPasswordMatch: requireCurrentPasswordMatch,
 }

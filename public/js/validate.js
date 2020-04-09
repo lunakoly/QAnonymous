@@ -1,6 +1,7 @@
 const username          = document.getElementById('username')
 const password          = document.getElementById('password')
 const password_repeat   = document.getElementById('password_repeat')
+const password_current  = document.getElementById('password_current')
 const email             = document.getElementById('email')
 
 
@@ -49,6 +50,16 @@ function ensureValidPassword() {
     }
 }
 
+function ensureValidCurrentPassword() {
+    if (!isValidPassword(password_current.value)) {
+        password_current.classList.remove('valid')
+        password_current.classList.add('invalid')
+    } else {
+        password_current.classList.remove('invalid')
+        password_current.classList.add('valid')
+    }
+}
+
 function ensureValidEmail() {
     if (!isValidEmail(email.value)) {
         email.classList.remove('valid')
@@ -65,27 +76,66 @@ function addKeyEvent(element, callback) {
     element.addEventListener('keyup', callback)
 }
 
-function hasLoginIssues() {
+function hasUsernameIssues() {
     if (!isValidUsername(username.value)) {
         alert('Username must consist of 1 to 50 symbols like: [a-zA-Z0-9_]')
-        return true
-    }
-
-    if (!isValidPassword(password.value)) {
-        alert('Password must contain from 8 to 72 symbols')
         return true
     }
 
     return false
 }
 
-function hasRegisterIssues() {
-    if (hasLoginIssues()) {
+const PASSWORD_ERROR = 'Password must contain from 8 to 72 symbols'
+
+function hasPasswordIssues() {
+    if (!isValidPassword(password.value)) {
+        alert(PASSWORD_ERROR)
         return true
     }
 
+    return false
+}
+
+function hasEmailIssues() {
     if (!isValidEmail(email.value)) {
         alert('Email is invalid')
+        return true
+    }
+
+    return false
+}
+
+function hasLoginIssues() {
+    return hasUsernameIssues() || hasPasswordIssues()
+}
+
+function hasRegisterIssues() {
+    if (
+        hasLoginIssues() ||
+        hasEmailIssues()
+    ) {
+        return true
+    }
+
+    if (!checkPasswords()) {
+        alert('Passwords must be equal')
+        return true
+    }
+
+    return false
+}
+
+function hasUpdateInfoIssues() {
+    return hasUsernameIssues() || hasEmailIssues()
+}
+
+function hasUpdatePasswordIssues() {
+    if (hasPasswordIssues()) {
+        return true
+    }
+
+    if (!isValidPassword(password_current.value)) {
+        alert(PASSWORD_ERROR)
         return true
     }
 
@@ -109,6 +159,10 @@ if (password) {
 if (password_repeat) {
     addKeyEvent(password, checkPasswords)
     addKeyEvent(password_repeat, checkPasswords)
+}
+
+if (password_current) {
+    addKeyEvent(password_current, ensureValidCurrentPassword)
 }
 
 if (email) {

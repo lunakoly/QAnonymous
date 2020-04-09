@@ -3,6 +3,7 @@
     <head>
         <title>Q|Anonymous</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="/public/css/more/materialize.css">
         <link rel="stylesheet" href="/public/css/more/icon.css">
@@ -22,6 +23,7 @@
             <a href="/" class="brand-logo">Q|Anonymous</a>
             <ul class="hide-on-med-and-down">
                 {{#loggedIn}}
+                    <li><a href="/settings" class="btn-flat force-round waves-effect waves-dark">Settings</a></li>
                     <li><a href="/logout" class="btn waves-effect waves-light">Log Out</a></li>
                 {{/loggedIn}}
                 {{^loggedIn}}

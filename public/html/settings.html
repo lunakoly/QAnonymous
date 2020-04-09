@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Q|Anonymous</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="/public/css/more/materialize.css">
+        <link rel="stylesheet" href="/public/css/more/icon.css">
+
+        <link rel="stylesheet" href="/public/css/common.css">
+    </head>
+
+    <body>
+        <div id="navbar">
+            <ul class="hide-on-med-and-down">
+                <li><a href="/" class="global-selection waves-effect waves-dark">Home</a></li>
+                <div class="spacer"></div>
+                <li><a href="/ask" class="global-selection waves-effect waves-dark">Ask</a></li>
+                <div class="spacer"></div>
+                <li><a href="/answer" class="global-selection waves-effect waves-dark">Answer</a></li>
+            </ul>
+            <a href="/" class="brand-logo">Q|Anonymous</a>
+            <ul class="hide-on-med-and-down">
+                <li><a href="/logout" class="btn waves-effect waves-light">Log Out</a></li>
+            </ul>
+        </div>
+
+
+        <div class="container">
+            <div class="row center">
+                <h2>Info</h2>
+
+                <div class="row">
+                    <form id="info_form" class="col m6 offset-m3 s12" action="/update-info" method="POST">
+                        <div class="input-field">
+                            <input type="text" id="username" name="username" tabindex="1" value="{{ username }}" required>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" id="email" name="email" tabindex="2" value="{{ email }}" required>
+                            <label for="email">Email</label>
+                        </div>
+
+                        <button
+                            id="send_info"
+                            class="btn waves-effect waves-light"
+                            tabindex="3"
+                            type="button">Update
+                        </button>
+                    </form>
+                </div>
+
+                <h2>Password</h2>
+
+                <div class="row">
+                    <form id="password_form" class="col m6 offset-m3 s12" action="/update-password" method="POST">
+                        <div class="input-field">
+                            <input type="password" id="password_current" name="password_current" tabindex="4" required>
+                            <label for="password_current">Current Password</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="password" id="password" name="password" tabindex="5" required>
+                            <label for="password">Password</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="password" id="password_repeat" name="password_repeat" tabindex="6" required>
+                            <label for="password">Once again</label>
+                        </div>
+
+                        <button
+                            id="send_password"
+                            class="btn waves-effect waves-light"
+                            tabindex="7"
+                            type="button">Update
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="/public/js/more/materialize.min.js"></script>
+
+        <script src="/public/js/validate.js"></script>
+        <script src="/public/js/settings.js"></script>
+    </body>
+</html>
