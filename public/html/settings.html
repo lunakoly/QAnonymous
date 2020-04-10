@@ -26,58 +26,59 @@
             </ul>
         </div>
 
+        <div class="slide">
+            <div class="container">
+                <div class="row center">
+                    <h2>Info</h2>
 
-        <div class="container">
-            <div class="row center">
-                <h2>Info</h2>
+                    <div class="row">
+                        <form id="info_form" class="col m6 offset-m3 s12" action="/update-info" method="POST">
+                            <div class="input-field">
+                                <input type="text" id="username" name="username" tabindex="1" value="{{ username }}" required>
+                                <label for="username">Username</label>
+                            </div>
 
-                <div class="row">
-                    <form id="info_form" class="col m6 offset-m3 s12" action="/update-info" method="POST">
-                        <div class="input-field">
-                            <input type="text" id="username" name="username" tabindex="1" value="{{ username }}" required>
-                            <label for="username">Username</label>
-                        </div>
+                            <div class="input-field">
+                                <input type="text" id="email" name="email" tabindex="2" value="{{ email }}" required>
+                                <label for="email">Email</label>
+                            </div>
 
-                        <div class="input-field">
-                            <input type="text" id="email" name="email" tabindex="2" value="{{ email }}" required>
-                            <label for="email">Email</label>
-                        </div>
+                            <button
+                                id="send_info"
+                                class="btn waves-effect waves-light"
+                                tabindex="3"
+                                type="button">Update
+                            </button>
+                        </form>
+                    </div>
 
-                        <button
-                            id="send_info"
-                            class="btn waves-effect waves-light"
-                            tabindex="3"
-                            type="button">Update
-                        </button>
-                    </form>
-                </div>
+                    <h2>Password</h2>
 
-                <h2>Password</h2>
+                    <div class="row">
+                        <form id="password_form" class="col m6 offset-m3 s12" action="/update-password" method="POST">
+                            <div class="input-field">
+                                <input type="password" id="password_current" name="password_current" tabindex="4" required>
+                                <label for="password_current">Current Password</label>
+                            </div>
 
-                <div class="row">
-                    <form id="password_form" class="col m6 offset-m3 s12" action="/update-password" method="POST">
-                        <div class="input-field">
-                            <input type="password" id="password_current" name="password_current" tabindex="4" required>
-                            <label for="password_current">Current Password</label>
-                        </div>
+                            <div class="input-field">
+                                <input type="password" id="password" name="password" tabindex="5" required>
+                                <label for="password">Password</label>
+                            </div>
 
-                        <div class="input-field">
-                            <input type="password" id="password" name="password" tabindex="5" required>
-                            <label for="password">Password</label>
-                        </div>
+                            <div class="input-field">
+                                <input type="password" id="password_repeat" name="password_repeat" tabindex="6" required>
+                                <label for="password">Once again</label>
+                            </div>
 
-                        <div class="input-field">
-                            <input type="password" id="password_repeat" name="password_repeat" tabindex="6" required>
-                            <label for="password">Once again</label>
-                        </div>
-
-                        <button
-                            id="send_password"
-                            class="btn waves-effect waves-light"
-                            tabindex="7"
-                            type="button">Update
-                        </button>
-                    </form>
+                            <button
+                                id="send_password"
+                                class="btn waves-effect waves-light"
+                                tabindex="7"
+                                type="button">Update
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

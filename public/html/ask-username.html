@@ -33,66 +33,68 @@
             </ul>
         </div>
 
-        <div class="container center-align">
-            <h2>Ask <span class="nik">{{ username }}</span></h2>
+        <div class="slide">
+            <div class="container center-align">
+                <h2>Ask <span class="nik">{{ username }}</span></h2>
 
-            <form
-                id="question_form"
-                class="row input-field"
-                action="/send-question/{{ username }}"
-                method="POST">
-                <div class="row">
-                    <textarea
-                        id="question_input"
-                        name="question"
-                        class="floating col m6 offset-m3"
-                        tabindex="1"
-                        placeholder="?"></textarea>
-                </div>
+                <form
+                    id="question_form"
+                    class="row input-field"
+                    action="/send-question/{{ username }}"
+                    method="POST">
+                    <div class="row">
+                        <textarea
+                            id="question_input"
+                            name="question"
+                            class="floating col m6 offset-m3"
+                            tabindex="1"
+                            placeholder="?"></textarea>
+                    </div>
 
-                <button
-                    id="send_button"
-                    class="btn waves-effect waves-light"
-                    tabindex="2"
-                    type="button">Ask
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
-        </div>
+                    <button
+                        id="send_button"
+                        class="btn waves-effect waves-light"
+                        tabindex="2"
+                        type="button">Ask
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
 
-        <div class="container center-align">
-            <h2>Answers</h2>
+            <div class="container center-align">
+                <h2>Answers</h2>
 
-            {{^result.rows}}
-                <p class="flow-text">Looks like no one has ever asked <span class="nik">{{ username }}</span> before. Be the first one!</p>
-            {{/result.rows}}
+                {{^result.rows}}
+                    <p class="flow-text">Looks like no one has ever asked <span class="nik">{{ username }}</span> before. Be the first one!</p>
+                {{/result.rows}}
 
-            <div class="not-too-wide row">
-                <div class="col m4 s12">
-                    {{#result.column1}}
-                        <div class="floating topic">
-                            <div class="question">{{question}}</div>
-                            <div class="answer">{{answer}}</div>
-                        </div>
-                    {{/result.column1}}
-                </div>
+                <div class="not-too-wide row">
+                    <div class="col m4 s12">
+                        {{#result.column1}}
+                            <div class="floating topic">
+                                <div class="question">{{question}}</div>
+                                <div class="answer">{{answer}}</div>
+                            </div>
+                        {{/result.column1}}
+                    </div>
 
-                <div class="col m4 s12">
-                    {{#result.column2}}
-                        <div class="floating topic">
-                            <div class="question">{{question}}</div>
-                            <div class="answer">{{answer}}</div>
-                        </div>
-                    {{/result.column2}}
-                </div>
+                    <div class="col m4 s12">
+                        {{#result.column2}}
+                            <div class="floating topic">
+                                <div class="question">{{question}}</div>
+                                <div class="answer">{{answer}}</div>
+                            </div>
+                        {{/result.column2}}
+                    </div>
 
-                <div class="col m4 s12">
-                    {{#result.column3}}
-                        <div class="floating topic">
-                            <div class="question">{{question}}</div>
-                            <div class="answer">{{answer}}</div>
-                        </div>
-                    {{/result.column3}}
+                    <div class="col m4 s12">
+                        {{#result.column3}}
+                            <div class="floating topic">
+                                <div class="question">{{question}}</div>
+                                <div class="answer">{{answer}}</div>
+                            </div>
+                        {{/result.column3}}
+                    </div>
                 </div>
             </div>
         </div>

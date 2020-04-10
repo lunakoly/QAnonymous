@@ -28,81 +28,83 @@
             </ul>
         </div>
 
-        <div class="container center-align">
-            <h2>Questions for <span class="nik">you</span></h2>
+        <div class="slide">
+            <div class="container center-align">
+                <h2>Questions for <span class="nik">you</span></h2>
 
-            {{^result.rows}}
-                <p class="flow-text">Looks like there're no new questions...</p>
-            {{/result.rows}}
+                {{^result.rows}}
+                    <p class="flow-text">Looks like there're no new questions...</p>
+                {{/result.rows}}
 
-            <div class="row">
-                <div class="col m4 s12">
-                    {{#result.column1}}
-                        <div class="floating topic">
-                            <div class="question">{{question}}</div>
+                <div class="row">
+                    <div class="col m4 s12">
+                        {{#result.column1}}
+                            <div class="floating topic">
+                                <div class="question">{{question}}</div>
 
-                            <form
-                                class="answer_form input-field no-margin"
-                                action="/send-answer/{{ id }}"
-                                method="POST">
-                                <textarea
-                                    class="inline-textarea answer_input"
-                                    name="answer"
-                                    placeholder="↯"></textarea>
-                            </form>
+                                <form
+                                    class="answer_form input-field no-margin"
+                                    action="/send-answer/{{ id }}"
+                                    method="POST">
+                                    <textarea
+                                        class="inline-textarea answer_input"
+                                        name="answer"
+                                        placeholder="↯"></textarea>
+                                </form>
 
-                            <a
-                                class="send_button btn waves-effect waves-light">Answer
-                                <i class="material-icons right">send</i>
-                            </a>
-                        </div>
-                    {{/result.column1}}
-                </div>
+                                <a
+                                    class="send_button btn waves-effect waves-light">Answer
+                                    <i class="material-icons right">send</i>
+                                </a>
+                            </div>
+                        {{/result.column1}}
+                    </div>
 
-                <div class="col m4 s12">
-                    {{#result.column2}}
-                        <div class="floating topic">
-                            <div class="question">{{question}}</div>
+                    <div class="col m4 s12">
+                        {{#result.column2}}
+                            <div class="floating topic">
+                                <div class="question">{{question}}</div>
 
-                            <form
-                                class="answer_form input-field no-margin"
-                                action="/send-answer/{{ id }}"
-                                method="POST">
-                                <textarea
-                                    class="inline-textarea answer_input"
-                                    name="answer"
-                                    placeholder="↯"></textarea>
-                            </form>
+                                <form
+                                    class="answer_form input-field no-margin"
+                                    action="/send-answer/{{ id }}"
+                                    method="POST">
+                                    <textarea
+                                        class="inline-textarea answer_input"
+                                        name="answer"
+                                        placeholder="↯"></textarea>
+                                </form>
 
-                            <a
-                                class="send_button btn waves-effect waves-light">Answer
-                                <i class="material-icons right">send</i>
-                            </a>
-                        </div>
-                    {{/result.column2}}
-                </div>
+                                <a
+                                    class="send_button btn waves-effect waves-light">Answer
+                                    <i class="material-icons right">send</i>
+                                </a>
+                            </div>
+                        {{/result.column2}}
+                    </div>
 
-                <div class="col m4 s12">
-                    {{#result.column3}}
-                        <div class="floating topic">
-                            <div class="question">{{question}}</div>
+                    <div class="col m4 s12">
+                        {{#result.column3}}
+                            <div class="floating topic">
+                                <div class="question">{{question}}</div>
 
-                            <form
-                                class="answer_form input-field no-margin"
-                                action="/send-answer/{{ id }}"
-                                method="POST">
-                                <textarea
-                                    class="inline-textarea answer_input"
-                                    name="answer"
-                                    placeholder="↯"></textarea>
-                            </form>
+                                <form
+                                    class="answer_form input-field no-margin"
+                                    action="/send-answer/{{ id }}"
+                                    method="POST">
+                                    <textarea
+                                        class="inline-textarea answer_input"
+                                        name="answer"
+                                        placeholder="↯"></textarea>
+                                </form>
 
-                            <a
-                                class="send_button btn waves-effect waves-light">Answer
-                                <i class="material-icons right">send</i>
-                            </a>
-                        </div>
-                    {{/result.column3}}
+                                <a
+                                    class="send_button btn waves-effect waves-light">Answer
+                                    <i class="material-icons right">send</i>
+                                </a>
+                            </div>
+                        {{/result.column3}}
+                    </div>
                 </div>
             </div>
         </div>

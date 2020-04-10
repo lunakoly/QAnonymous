@@ -32,6 +32,16 @@ h1, h2, h3, h4 {
 }
 
 
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 #navbar {
     height: 4.4rem;
 
@@ -40,6 +50,9 @@ h1, h2, h3, h4 {
     padding: 1em;
 
     position: relative;
+
+    background-color: #fff;
+    box-shadow: 0px 0px 20px #d2d2d2;
 }
 
 #navbar > ul {
@@ -82,8 +95,13 @@ h1, h2, h3, h4 {
 }
 
 
+.slide {
+    height: 100%;
+    overflow: auto;
+}
+
 .hat {
-    height: 80vh;
+    height: 100%;
 }
 
 
