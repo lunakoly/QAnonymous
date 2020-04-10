@@ -193,6 +193,17 @@ function requireValidAnswer(request, response, next) {
     })
 }
 
+function requireRegistrationAllowed(request, response, next) {
+    if (process.env.DISABLE_REGISTRATION != 'true') {
+        return next()
+    }
+
+    return response.render(asset('error.html'), {
+        message: `Sorry, but registration is restricted for now. Contact the admin to find out the reason.`,
+        loggedIn: request.isAuthenticated()
+    })
+}
+
 
 module.exports = {
     requireAuthenticated: requireAuthenticated,
@@ -208,4 +219,5 @@ module.exports = {
     requireValidQuestion: requireValidQuestion,
     requireValidAnswer: requireValidAnswer,
     requireUserNotExistsOrSelf: requireUserNotExistsOrSelf,
+    requireRegistrationAllowed: requireRegistrationAllowed,
 }

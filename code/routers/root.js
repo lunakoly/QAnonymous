@@ -43,9 +43,13 @@ root.get('/login', constraints.requireNotAuthenticated, (request, response) => {
 
 root.get('/logout', authentication.logOut)
 
-root.get('/register', constraints.requireNotAuthenticated, (request, response) => {
-    response.sendFile(asset('register.html'))
-})
+root.get('/register',
+    constraints.requireNotAuthenticated,
+    constraints.requireRegistrationAllowed,
+    (request, response) => {
+        response.sendFile(asset('register.html'))
+    }
+)
 
 root.get('/settings', constraints.requireAuthenticated, (request, response) => {
     response.render(asset('settings.html'), {
@@ -102,6 +106,7 @@ root.post('/register',
     constraints.requireUserNotExists,
     constraints.requireValidPassword,
     constraints.requireValidEmail,
+    constraints.requireRegistrationAllowed,
     authentication.register
 )
 
